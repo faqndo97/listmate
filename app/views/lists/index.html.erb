@@ -9,6 +9,15 @@
   </div>
 
   <div id="lists" class="min-w-full">
-    <%= render @lists %>
+    <% @lists.each do |list| %>
+      <%= tag.div id: dom_id(list) do %>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Title:</strong>
+          <%= list.title %>
+        </p>
+
+        <%= link_to "Show this list", edit_list_path(list), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% end %>
+    <% end %>
   </div>
 </div>

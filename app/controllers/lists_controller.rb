@@ -5,9 +5,6 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
-  def show
-  end
-
   def new
     @list = List.new
     @list.items.build
@@ -20,7 +17,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to @list, notice: "List was successfully created."
+      redirect_to edit_list_path(@list), notice: "List was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,15 +25,10 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to @list, notice: "List was successfully updated."
+      redirect_to edit_list_path(@list), notice: "List was successfully created."
     else
       render :edit, status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    @list.destroy
-    redirect_to lists_url, notice: "List was successfully destroyed."
   end
 
   private
