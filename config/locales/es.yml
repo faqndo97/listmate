@@ -1,0 +1,27 @@
+es:
+  homes:
+    show:
+      menu:
+        features: "Características"
+        pricing: "Precios"
+        about: "Acerca de"
+        get_started: "Empezar"
+      main:
+        heading: "Comparte listas fácilmente con amigos y familiares"
+        subheading: "Crea y gestiona tus listas con una sencilla aplicación web que se puede compartir y que funciona en cualquier dispositivo."
+        features:
+          collaborative_lists:
+            title: "Listas colaborativas"
+            description: "Crea listas y compártelas con tus amigos y familiares. Todos pueden editar y marcar los elementos, manteniendo a todos sincronizados."
+          no_downloads:
+            title: "No se requieren descargas"
+            description: "ListMate.io funciona en dispositivos de escritorio y móviles sin necesidad de descargar una aplicación. ¡Solo visita el sitio web y empieza a crear listas!"
+        pricing:
+          title: "Precios"
+          free_plan:
+            title: "Plan gratuito"
+            feature_1: "Crear y compartir listas"
+            feature_2: "Hasta 50 elementos por lista"
+            feature_3: "Las listas caducan después de 1,5 semanas"
+      footer:
+        rights_reserved: "Todos los derechos reservados."

@@ -1,33 +1,27 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  homes:
+    show:
+      menu:
+        features: "Features"
+        pricing: "Pricing"
+        about: "About"
+        get_started: "Get Started"
+      main:
+        heading: "Easily share lists with friends and family"
+        subheading: "Create and manage your lists with a simple, shareable web app that works on any device."
+        features:
+          collaborative_lists:
+            title: "Collaborative Lists"
+            description: "Create lists and share them with your friends and family. Everyone can edit and check off items, keeping everyone in sync."
+          no_downloads:
+            title: "No Downloads Required"
+            description: "ListMate.io works on desktop and mobile devices without the need to download an app. Just visit the website and start creating lists!"
+        pricing:
+          title: "Pricing"
+          free_plan:
+            title: "Free Plan"
+            feature_1: "Create and share lists"
+            feature_2: "Up to 50 items per list"
+            feature_3: "Lists expire after 1.5 weeks"
+      footer:
+        rights_reserved: "All rights reserved."
