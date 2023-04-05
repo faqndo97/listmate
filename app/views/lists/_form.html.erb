@@ -1,4 +1,4 @@
-<%= form_with(model: list, class: "contents") do |form| %>
+<%= form_with(model: list, local: true, class: "contents", data: { controller: "nested-form" }) do |form| %>
   <% if list.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -15,6 +15,38 @@
     <%= form.label :title %>
     <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
+
+  <template data-nested-form-target='template'>
+    <%= form.fields_for :items, Item.new, child_index: "TEMPLATE_RECORD" do |item_fields| %>
+      <div class="nested-fields">
+        <%= item_fields.hidden_field :_destroy %>
+
+        <%= item_fields.label :description, "Item Description" %>
+        <%= item_fields.text_field :description %>
+
+        <%= item_fields.label :completed, "Completed?" %>
+        <%= item_fields.check_box :completed %>
+
+        <%= link_to "Remove", "#", data: { action: "nested-form#removeAssociation" } %>
+      </div>
+    <% end %>
+  </template>
+
+  <%= form.fields_for :items do |item_fields| %>
+    <div class="nested-fields">
+      <%= item_fields.hidden_field :_destroy %>
+
+      <%= item_fields.label :description, "Item Description" %>
+      <%= item_fields.text_field :description %>
+
+      <%= item_fields.label :completed, "Completed?" %>
+      <%= item_fields.check_box :completed %>
+
+      <%= link_to "Remove", "#", data: { action: "nested-form#removeAssociation" } %>
+    </div>
+  <% end %>
+
+  <%= link_to "Add Item", "#", id: "add_item", data: { action: "nested-form#addAssociation", nested_form_target: "addItem" } %>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>

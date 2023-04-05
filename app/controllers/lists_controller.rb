@@ -10,6 +10,7 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    @list.items.build
   end
 
   def edit
@@ -45,6 +46,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, items_attributes: [:id, :description, :completed, :_destroy])
   end
 end
