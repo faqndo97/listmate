@@ -26,7 +26,7 @@
               <a href="#" class="mx-4"><%= t('.menu.pricing') %></a>
               <a href="#" class="mx-4"><%= t('.menu.about') %></a>
             </nav>
-            <a href="#" class="bg-blue-500 text-white px-6 py-2 rounded-md"><%= t('.menu.get_started') %></a>
+            <%= link_to t('.menu.get_started'), new_list_path, class: "bg-blue-500 text-white px-6 py-2 rounded-md" %>
           </div>
         </div>
       </div>
@@ -36,6 +36,9 @@
       <section class="text-center">
         <h1 class="text-4xl font-bold mb-4"><%= t('.main.heading') %></h1>
         <p class="text-xl text-gray-700"><%= t('.main.subheading') %></p>
+        <div class="flex md:hidden justify-center mt-4">
+          <%= link_to t('.menu.get_started'), new_list_path, class: "bg-blue-500 text-white px-6 py-2 rounded-md" %>
+        </div>
       </section>
 
       <section class="mt-12 grid md:grid-cols-2 gap-8">
