@@ -17,7 +17,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to edit_list_path(@list), notice: "List was successfully created."
+      redirect_to @list, notice: "List was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to edit_list_path(@list), notice: "List was successfully created."
+      redirect_to @list, notice: "List was successfully created."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class ListsController < ApplicationController
   private
 
   def set_list
-    @list = List.find(params[:id])
+    @list = List.find_by!(share_id: params[:share_id])
   end
 
   def list_params
