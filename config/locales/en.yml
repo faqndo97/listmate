@@ -9,7 +9,8 @@ en:
     application:
       menu:
         my_lists: "My Lists"
-        create_list: "Create"
+        create: "Create"
+        create_list: "Create List"
       footer:
         rights_reserved: "All rights reserved."
   lists:

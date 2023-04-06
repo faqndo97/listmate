@@ -26,22 +26,33 @@
   <body>
     <div class="flex flex-col min-h-screen">
       <div class="flex-grow">
-        <header class="bg-white shadow">
-          <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-              <div>
-                <%= link_to "ListMate", root_path, class: "text-xl font-semibold text-gray-800" %>
-              </div>
-              <div class="hidden md:flex items-center">
-                <nav class="font-semibold text-gray-800">
-                  <%= link_to t('.menu.my_lists'), lists_path, class: "mx-4" %>
-                </nav>
-                <%= link_to t('.menu.create_list'), new_list_path, class: "bg-blue-500 text-white px-6 py-2 rounded-md" %>
-              </div>
+
+        <header class="bg-white shadow-sm" data-controller="mobile-menu">
+          <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+              <%= link_to "ListMate", root_path %>
             </div>
+            <nav class="hidden md:flex space-x-4 items-center">
+              <%= link_to t('.menu.my_lists'), lists_path, class: "mx-4" %>
+              <%= link_to t('.menu.create'), new_list_path, class: "bg-blue-500 text-white px-6 py-2 rounded-md" %>
+            </nav>
+            <button id="hamburger" class="md:hidden focus:outline-none"  data-action="click->mobile-menu#toggleMenu">
+              <i class="fas fa-bars text-gray-800"></i>
+            </button>
+          </div>
+          <div id="mobile-menu" class="hidden md:hidden absolute bg-white w-full left-0 mt-2 shadow-md z-10" data-mobile-menu-target="menu">
+            <ul class="list-none p-0">
+              <li>
+                <%= link_to t(".menu.my_lists"), lists_path, class: "block px-4 py-2 text-gray-800 hover:bg-gray-200" %>
+              </li>
+              <li>
+                <%= link_to t(".menu.create_list"), new_list_path, class: "block px-4 py-2 text-gray-800 hover:bg-gray-200" %>
+              </li>
+            </ul>
           </div>
         </header>
-        <main class="container mx-auto mt-28 px-5 flex">
+
+        <main class="container mx-auto mt-10 md:mt-20 px-5 flex">
           <%= yield %>
         </main>
       </div>

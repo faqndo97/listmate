@@ -2,17 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 import { ApplicationController, useDebounce } from "stimulus-use"
 
 export default class extends ApplicationController {
-  static debounces = ["submit"]
+  static debounces = ["submitWithDebounce"]
 
   connect() {
     useDebounce(this)
   }
 
   submitWithDebounce() {
-    this.submit()
-  }
-
-  submitNow() {
     this.submit()
   }
 
