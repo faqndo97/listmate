@@ -1,5 +1,8 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New list</h1>
+  <div class="flex justify-between mb-6">
+    <h1 class="font-bold text-4xl">New list</h1>
+    <button type="submit" form="new-list-form" class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer">Create</button>
+  </div>
 
-  <%= render "form", list: @list %>
+  <%= render "form", list: @list, form_id: "new-list-form" %>
 </div>

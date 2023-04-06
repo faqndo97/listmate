@@ -1,4 +1,4 @@
-<%= form_with(model: list, local: true, class: "contents", data: { controller: "nested-form" }) do |form| %>
+<%= form_with(model: list, local: true, class: "contents", data: { controller: "nested-form" }, id: form_id) do |form| %>
   <% if list.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -11,34 +11,41 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <% if action_name == "new" %>
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
+    </div>
+  <% end %>
 
   <template data-nested-form-target='template'>
     <%= form.fields_for :items, Item.new, child_index: "TEMPLATE_RECORD" do |item_fields| %>
-      <div class="nested-fields flex items-center">
+      <div class="nested-fields flex items-center border-b-2 py-2">
         <%= item_fields.hidden_field :_destroy %>
-        <%= item_fields.check_box :completed %>
-        <%= item_fields.text_field :description, class: "mx-4 shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= item_fields.check_box :completed, class: "w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-transparent" %>
+        <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item" %>
 
         <%= link_to "#", data: { action: "nested-form#removeAssociation" } do %>
-          <i class="fa-solid fa-trash-can"></i>
+          <i class="fa-solid fa-trash-can text-red-500 text-xl"></i>
         <% end %>
       </div>
     <% end %>
   </template>
 
-  <div class="mb-4">
+  <div class="mt-4">
+    <% if action_name == "new" %>
+      <h2>Items</h2>
+    <% end %>
     <%= form.fields_for :items do |item_fields| %>
-      <div class="nested-fields flex items-center">
+      <div class="nested-fields flex items-center border-b-2 py-2">
         <%= item_fields.hidden_field :_destroy %>
-        <%= item_fields.check_box :completed %>
-        <%= item_fields.text_field :description, class: "mx-4 shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= item_fields.check_box :completed, class: "w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-transparent" %>
+        <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item" %>
+
+        <%# <%= item_fields.text_field :description, class: "mx-4 shadow rounded-sm border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %1> %>
 
         <%= link_to "#", data: { action: "nested-form#removeAssociation" } do %>
-          <i class="fa-solid fa-trash-can"></i>
+          <i class="fa-solid fa-trash-can text-red-500 text-xl"></i>
         <% end %>
       </div>
     <% end %>
@@ -46,11 +53,7 @@
     </div>
   </div>
 
-  <div class="mb-4">
-    <%= link_to "Add Item", "#", class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium cursor-pointer", id: "add_item", data: { action: "nested-form#addAssociation" } %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="mt-8 flex justify-end">
+    <%= link_to "+", "#", class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium cursor-pointer", id: "add_item", data: { action: "nested-form#addAssociation" } %>
   </div>
 <% end %>
