@@ -19,7 +19,7 @@ class ListsController < ApplicationController
 
     if @list.save
       add_list_to_user_cookies
-      redirect_to @list
+      redirect_to list_path(@list, locale: I18n.locale)
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to @list
+      redirect_to list_path(@list, locale: I18n.locale)
     else
       render :edit, status: :unprocessable_entity
     end
