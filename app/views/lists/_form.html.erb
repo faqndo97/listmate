@@ -1,4 +1,4 @@
-<%= form_with(model: list, local: true, class: "contents", data: { controller: "nested-form" }, id: form_id) do |form| %>
+<%= form_with(model: list, local: true, class: "contents", data: { controller: "nested-form form" }, id: form_id) do |form| %>
   <% if list.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -23,7 +23,11 @@
       <div class="nested-fields flex items-center border-b-2 py-2">
         <%= item_fields.hidden_field :_destroy %>
         <%= item_fields.check_box :completed, class: "w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-transparent" %>
-        <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item" %>
+        <% if action_name == "new" %>
+          <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item" %>
+        <% else %>
+          <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item", data: { action: "form#submitWithDebounce" } %>
+        <% end %>
 
         <%= link_to "#", data: { action: "nested-form#removeAssociation" } do %>
           <i class="fa-solid fa-trash-can text-red-500 text-xl"></i>
@@ -40,13 +44,15 @@
       <div class="nested-fields flex items-center border-b-2 py-2">
         <%= item_fields.hidden_field :_destroy %>
         <%= item_fields.check_box :completed, class: "w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-transparent" %>
-        <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item" %>
+        <% if action_name == "new" %>
+          <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item" %>
+        <% else %>
+          <%= item_fields.text_field :description, class: "mx-4 border-0 w-full focus:ring-transparent", required: true, placeholder: "Item", data: { action: "form#submitWithDebounce" } %>
+        <% end %>
 
         <%# <%= item_fields.text_field :description, class: "mx-4 shadow rounded-sm border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %1> %>
 
-        <%= link_to "#", data: { action: "nested-form#removeAssociation" } do %>
-          <i class="fa-solid fa-trash-can text-red-500 text-xl"></i>
-        <% end %>
+        <i class="fa-solid fa-trash-can text-red-500 text-xl" data-action="click->nested-form#removeAssociation click->form#submit"></i>
       </div>
     <% end %>
     <div data-nested-form-target="addItem">
