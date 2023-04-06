@@ -1,1 +1,17 @@
-/* Application styles */
+/* Tippy Success Theme */
+.tippy-box[data-theme~='success'] {
+  background-color: rgb(16 185 129);
+  color: white;
+}
+.tippy-box[data-theme~='success'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: rgb(16 185 129);
+}
+.tippy-box[data-theme~='success'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: rgb(16 185 129);
+}
+.tippy-box[data-theme~='success'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: rgb(16 185 129);
+}
+.tippy-box[data-theme~='success'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: rgb(16 185 129);
+}

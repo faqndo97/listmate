@@ -6,6 +6,10 @@ en:
         create_list: "Create"
       footer:
         rights_reserved: "All rights reserved."
+  lists:
+    edit:
+      copy_tooltip_msg: "URL Copied!"
+      share: "Share"
   homes:
     show:
       menu:
