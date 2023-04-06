@@ -27,7 +27,7 @@
               </div>
               <div class="hidden md:flex items-center">
                 <nav class="font-semibold text-gray-800">
-                  <a href="#" class="mx-4"><%= t('.menu.my_lists') %></a>
+                  <%= link_to t('.menu.my_lists'), lists_path, class: "mx-4" %>
                 </nav>
                 <%= link_to t('.menu.create_list'), new_list_path, class: "bg-blue-500 text-white px-6 py-2 rounded-md" %>
               </div>
