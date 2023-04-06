@@ -14,8 +14,35 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <div class="flex flex-col min-h-screen">
+      <div class="flex-grow">
+        <header class="bg-white shadow">
+          <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <a href="#" class="text-xl font-semibold text-gray-800">ListMate</a>
+              </div>
+              <div class="hidden md:flex items-center">
+                <nav class="font-semibold text-gray-800">
+                  <a href="#" class="mx-4"><%= t('.menu.my_lists') %></a>
+                </nav>
+                <%= link_to t('.menu.create_list'), new_list_path, class: "bg-blue-500 text-white px-6 py-2 rounded-md" %>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="container mx-auto mt-28 px-5 flex">
+          <%= yield %>
+        </main>
+      </div>
+
+      <footer class="bg-white shadow mt-12">
+        <div class="container mx-auto px-6 py-3">
+          <div class="text-center text-gray-800">
+            &copy; <%= Time.current.year %> ListMate. <%= t('.footer.rights_reserved') %>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

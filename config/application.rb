@@ -25,6 +25,7 @@ module Listmate
 
     config.i18n.available_locales = [:en, :es]
     config.i18n.default_locale = :en
+    config.i18n.raise_on_missing_translations = true
 
     # Configuration for the application, engines, and railties goes here.
     #

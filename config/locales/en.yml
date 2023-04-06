@@ -1,4 +1,11 @@
 en:
+  layouts:
+    application:
+      menu:
+        my_lists: "My Lists"
+        create_list: "Create"
+      footer:
+        rights_reserved: "All rights reserved."
   homes:
     show:
       menu:
