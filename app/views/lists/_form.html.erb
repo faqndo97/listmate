@@ -1,7 +1,7 @@
 <%= form_with(model: list, local: true, class: "contents", data: { controller: "nested-form form" }, id: form_id) do |form| %>
   <% if list.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+      <h2><%= pluralize(list.errors.count, "error", locale: I18n.locale) %> prohibited this list from being saved:</h2>
 
       <ul>
         <% list.errors.each do |error| %>

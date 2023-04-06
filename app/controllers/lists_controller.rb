@@ -19,7 +19,7 @@ class ListsController < ApplicationController
 
     if @list.save
       add_list_to_user_cookies
-      redirect_to @list, notice: "List was successfully created."
+      redirect_to @list
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to @list, notice: "List was successfully created."
+      redirect_to @list
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,4 +1,10 @@
 en:
+  activerecord:
+    attributes:
+      list:
+        title: "Title"
+      item:
+        description: "Description"
   layouts:
     application:
       menu:
@@ -10,6 +16,14 @@ en:
     edit:
       copy_tooltip_msg: "URL Copied!"
       share: "Share"
+      title: "Edit %{list} List"
+    index:
+      lists: "Lists"
+      new_list: "New List"
+      show: "Show this list"
+    new:
+      new_list: "New List"
+      create: "Create"
   homes:
     show:
       menu:

@@ -1,20 +1,45 @@
 es:
+  activerecord:
+    attributes:
+      list:
+        title: "Título"
+      item:
+        description: "Descripción"
+  layouts:
+    application:
+      menu:
+        my_lists: "Mis Listas"
+        create_list: "Crear"
+      footer:
+        rights_reserved: "Todos los derechos reservados."
+  lists:
+    edit:
+      copy_tooltip_msg: "URL copiada!"
+      share: "Compartir"
+      title: "Editar lista %{list}"
+    index:
+      lists: "Listas"
+      new_list: "Nueva Lista"
+      show: "Mostrar esta lista"
+    new:
+      new_list: "Nueva Lista"
+      create: "Crear"
   homes:
     show:
       menu:
         features: "Características"
         pricing: "Precios"
         about: "Acerca de"
-        get_started: "Empezar"
+        get_started: "Comenzar"
       main:
-        heading: "Comparte listas fácilmente con amigos y familiares"
-        subheading: "Crea y gestiona tus listas con una sencilla aplicación web que se puede compartir y que funciona en cualquier dispositivo."
+        heading: "Comparte fácilmente listas con amigos y familia"
+        subheading: "Crea y gestiona tus listas con una sencilla aplicación web que funciona en cualquier dispositivo y es fácil de compartir."
         features:
           collaborative_lists:
             title: "Listas colaborativas"
             description: "Crea listas y compártelas con tus amigos y familiares. Todos pueden editar y marcar los elementos, manteniendo a todos sincronizados."
           no_downloads:
-            title: "No se requieren descargas"
+            title: "Sin descargas"
             description: "ListMate.io funciona en dispositivos de escritorio y móviles sin necesidad de descargar una aplicación. ¡Solo visita el sitio web y empieza a crear listas!"
         pricing:
           title: "Precios"
@@ -22,6 +47,7 @@ es:
             title: "Plan gratuito"
             feature_1: "Crear y compartir listas"
             feature_2: "Hasta 50 elementos por lista"
-            feature_3: "Las listas caducan después de 1,5 semanas"
+            feature_3: "Las listas caducan después de 1.5 semanas"
       footer:
         rights_reserved: "Todos los derechos reservados."
+
